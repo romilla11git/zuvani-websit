@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZUVANI • Premium Fashion Store</title>
     <meta name="description" content="Kenya's Premium Online Fashion Store - Authentic Products, Secure Payments, Fast Delivery">
-    <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -42,17 +41,25 @@
             --value-text: #ffffff;
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         body {
             background-color: var(--bg-color);
             color: var(--text-color);
             transition: all 0.3s ease;
+            line-height: 1.6;
         }
 
         /* Trust Banner */
         .trust-banner {
             background: var(--trust-banner-bg);
             color: var(--trust-banner-text);
-            padding: 10px 0;
+            padding: 12px 0;
             font-size: 0.9em;
             border-bottom: 2px solid var(--primary);
         }
@@ -114,6 +121,9 @@
             color: var(--text-color);
             font-weight: 500;
             transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
         nav a:hover {
@@ -177,6 +187,110 @@
         
         .search-btn:hover {
             background: var(--primary-dark);
+        }
+        
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            min-height: 80vh;
+        }
+        
+        /* Pages */
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, var(--primary), #b8941f);
+            color: white;
+            border-radius: 20px;
+            margin-bottom: 3rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: #000000;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .btn-whatsapp {
+            background: #25D366;
+            color: white;
+        }
+        
+        .btn-whatsapp:hover {
+            background: #128C7E;
+            transform: translateY(-2px);
+        }
+        
+        /* Hero Features */
+        .hero-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.9);
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            color: #000000;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .feature-card i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
         
         /* Value Proposition */
@@ -255,29 +369,6 @@
             opacity: 0.9;
         }
         
-        /* Hero Features */
-        .hero-features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .feature-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            text-align: center;
-            color: var(--text-color);
-            border: 1px solid var(--border-color);
-        }
-        
-        .feature-card i {
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
         /* Trust Section */
         .trust-section {
             text-align: center;
@@ -308,361 +399,6 @@
             font-size: 3rem;
             color: var(--primary);
             margin-bottom: 1rem;
-        }
-        
-        /* Reviews */
-        .reviews-section {
-            padding: 4rem 2rem;
-            background: var(--section-bg);
-        }
-        
-        .reviews-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .review-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid var(--primary);
-            color: var(--text-color);
-        }
-        
-        .stars {
-            color: var(--primary);
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .customer {
-            color: var(--primary);
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-        
-        /* Categories */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .category-card {
-            background: var(--card-bg);
-            padding: 3rem 2rem;
-            border-radius: 15px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid var(--border-color);
-            color: var(--text-color);
-        }
-        
-        .category-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--primary);
-        }
-        
-        .category-icon {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* Mission Section */
-        .mission-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .mission-card {
-            text-align: center;
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 15px;
-            border: 1px solid var(--border-color);
-        }
-        
-        .mission-card i {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        /* Contact */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .contact-info {
-            background: var(--card-bg);
-            color: var(--text-color);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 1px solid var(--border-color);
-        }
-        
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .contact-item i {
-            font-size: 1.5rem;
-            color: var(--primary);
-            margin-top: 0.5rem;
-        }
-        
-        .whatsapp-link {
-            display: inline-block;
-            background: #25D366;
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            text-decoration: none;
-            margin-top: 0.5rem;
-            transition: background 0.3s ease;
-        }
-        
-        .whatsapp-link:hover {
-            background: #128C7E;
-        }
-        
-        /* Cart */
-        .cart-container {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-        }
-        
-        .delivery-section {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin: 1rem 0;
-            border: 1px solid var(--border-color);
-        }
-        
-        .trust-assurance {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--border-color);
-        }
-        
-        .assurance-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-        
-        .assurance-item i {
-            color: var(--primary);
-        }
-        
-        /* WhatsApp Float */
-        .whatsapp-float {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            background: #25D366;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            text-decoration: none;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            z-index: 1000;
-            transition: transform 0.3s ease;
-        }
-        
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        
-        /* Footer */
-        footer {
-            background: var(--footer-bg);
-            color: var(--footer-text);
-            margin-top: 4rem;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            padding: 3rem 2rem;
-        }
-        
-        .footer-section h3, .footer-section h4 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.5rem;
-        }
-        
-        .footer-section ul li a {
-            color: var(--footer-text);
-            text-decoration: none;
-            opacity: 0.8;
-            transition: opacity 0.3s ease;
-        }
-        
-        .footer-section ul li a:hover {
-            opacity: 1;
-            color: var(--primary);
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding: 1.5rem;
-            border-top: 1px solid #333;
-            background: #000000;
-            color: #ccc;
-        }
-        
-        .social-links a {
-            color: var(--footer-text);
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-        
-        .social-links a:hover {
-            opacity: 1;
-            color: var(--primary);
-            transform: translateY(-2px);
-        }
-        
-        /* Buttons */
-        .btn {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
-            font-size: 1rem;
-        }
-        
-        .btn-primary {
-            background: var(--primary);
-            color: #000000;
-        }
-        
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
-        }
-        
-        .btn-whatsapp {
-            background: #25D366;
-            color: white;
-        }
-        
-        .btn-whatsapp:hover {
-            background: #128C7E;
-            transform: translateY(-2px);
-        }
-        
-        .btn-success {
-            background: #28a745;
-            color: white;
-        }
-        
-        .btn-success:hover {
-            background: #218838;
-        }
-        
-        .btn-outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary);
-        }
-        
-        .btn-outline:hover {
-            background: var(--primary);
-            color: #000000;
-        }
-        
-        /* Main Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            min-height: 80vh;
-        }
-        
-        /* Pages */
-        .page {
-            display: none;
-        }
-        
-        .page.active {
-            display: block;
-        }
-        
-        /* Hero Section */
-        .hero {
-            text-align: center;
-            padding: 4rem 2rem;
-            background: linear-gradient(135deg, var(--primary), #b8941f);
-            color: white;
-            border-radius: 20px;
-            margin-bottom: 3rem;
-        }
-        
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-        
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
         }
         
         /* Products */
@@ -738,6 +474,10 @@
             cursor: pointer;
             font-weight: 600;
             transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
         }
         
         .add-to-cart:hover {
@@ -759,6 +499,69 @@
             margin-bottom: 2rem;
             color: var(--primary);
             font-weight: 700;
+        }
+        
+        /* Reviews */
+        .reviews-section {
+            padding: 4rem 2rem;
+            background: var(--section-bg);
+        }
+        
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .review-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--primary);
+            color: var(--text-color);
+        }
+        
+        .stars {
+            color: var(--primary);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .customer {
+            color: var(--primary);
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        /* Categories */
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .category-card {
+            background: var(--card-bg);
+            padding: 3rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid var(--border-color);
+            color: var(--text-color);
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+        }
+        
+        .category-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
         }
         
         /* About Page */
@@ -783,6 +586,75 @@
         .about-hero h2 {
             color: var(--primary);
             margin-bottom: 1.5rem;
+        }
+        
+        /* Mission Section */
+        .mission-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .mission-card {
+            text-align: center;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .mission-card i {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        /* Contact */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-info {
+            background: var(--card-bg);
+            color: var(--text-color);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid var(--border-color);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .contact-item i {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-top: 0.5rem;
+        }
+        
+        .whatsapp-link {
+            display: inline-block;
+            background: #25D366;
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 0.5rem;
+            transition: background 0.3s ease;
+        }
+        
+        .whatsapp-link:hover {
+            background: #128C7E;
         }
         
         /* Contact Form */
@@ -824,7 +696,13 @@
             box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
         }
         
-        /* Cart Styles */
+        /* Cart */
+        .cart-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+        }
+        
         .cart-items {
             margin-bottom: 2rem;
         }
@@ -884,6 +762,34 @@
             font-size: 1.3rem;
             font-weight: bold;
             border-bottom: none;
+            color: var(--primary);
+        }
+        
+        .delivery-section {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1rem 0;
+            border: 1px solid var(--border-color);
+        }
+        
+        .trust-assurance {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .assurance-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        
+        .assurance-item i {
             color: var(--primary);
         }
         
@@ -988,6 +894,118 @@
             background: var(--primary-dark);
         }
         
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        
+        .btn-success:hover {
+            background: #218838;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: #000000;
+        }
+        
+        /* WhatsApp Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 25px;
+            right: 25px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--footer-bg);
+            color: var(--footer-text);
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+        }
+        
+        .footer-section h3, .footer-section h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-section ul li a {
+            color: var(--footer-text);
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+        
+        .footer-section ul li a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #333;
+            background: #000000;
+            color: #ccc;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: var(--footer-text);
+            font-size: 1.5rem;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            opacity: 1;
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+        
         /* Responsive Design */
         @media (max-width: 768px) {
             .header-container {
@@ -997,6 +1015,8 @@
         
             nav ul {
                 gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
             }
         
             .hero h1 {
@@ -1028,6 +1048,7 @@
             .trust-items {
                 flex-direction: column;
                 text-align: center;
+                gap: 10px;
             }
         
             .proof-stats {
@@ -1046,6 +1067,13 @@
             .search-bar {
                 flex: 1;
                 margin: 0 1rem;
+                order: 3;
+                width: 100%;
+            }
+            
+            .trust-assurance {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
@@ -1208,7 +1236,7 @@
             <!-- Featured Products -->
             <h2 class="section-title">Featured T-Shirts</h2>
             <div class="products" id="featured-products">
-                <!-- Products load here -->
+                <!-- Products will be loaded by JavaScript -->
             </div>
 
             <!-- Customer Reviews -->
@@ -1238,7 +1266,7 @@
         <div id="shop" class="page">
             <h1 class="page-title">Shop All Products</h1>
             <div class="products" id="all-products">
-                <!-- Products load here -->
+                <!-- Products will be loaded by JavaScript -->
             </div>
         </div>
 
@@ -1529,7 +1557,7 @@
     </footer>
 
     <script>
-        // Theme functionality
+        // ===== THEME FUNCTIONALITY =====
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = themeToggle.querySelector('i');
         
@@ -1554,7 +1582,68 @@
             }
         });
 
-        // Basic navigation
+        // ===== PRODUCT DATA =====
+        const products = [
+            { 
+                id: 1, 
+                name: "Premium Cotton T-Shirt", 
+                price: 1499, 
+                featured: true,
+                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=500&fit=crop",
+                description: "100% premium cotton, available in all sizes",
+                category: "tshirts"
+            },
+            { 
+                id: 2, 
+                name: "Designer Polo Shirt", 
+                price: 2499, 
+                featured: true,
+                image: "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=400&h=500&fit=crop",
+                description: "Classic polo shirt with modern fit",
+                category: "tshirts"
+            },
+            { 
+                id: 3, 
+                name: "Casual V-Neck Tee", 
+                price: 1299, 
+                featured: true,
+                image: "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?w=400&h=500&fit=crop", 
+                description: "Comfortable v-neck for everyday wear",
+                category: "tshirts"
+            },
+            { 
+                id: 4, 
+                name: "Classic Denim Jeans", 
+                price: 3499, 
+                featured: false,
+                image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=500&fit=crop",
+                description: "Premium denim with perfect fit",
+                category: "pants"
+            },
+            { 
+                id: 5, 
+                name: "Formal Dress Shirt", 
+                price: 1999, 
+                featured: false,
+                image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=500&fit=crop",
+                description: "Elegant formal shirt for special occasions",
+                category: "shirts"
+            },
+            { 
+                id: 6, 
+                name: "Sports Running Shoes", 
+                price: 4599, 
+                featured: false,
+                image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=500&fit=crop",
+                description: "Comfortable running shoes for active lifestyle",
+                category: "shoes"
+            }
+        ];
+
+        // ===== SHOPPING CART =====
+        let cart = [];
+
+        // ===== NAVIGATION =====
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', function(e) {
                 e.preventDefault();
@@ -1568,6 +1657,16 @@
                 page.classList.remove('active');
             });
             document.getElementById(pageId).classList.add('active');
+            
+            // Load products if needed
+            if (pageId === 'home' || pageId === 'shop') {
+                loadProducts();
+            }
+            
+            // Update cart display if on cart page
+            if (pageId === 'cart') {
+                updateCartDisplay();
+            }
         }
 
         // Shop now button
@@ -1576,74 +1675,250 @@
             showPage('shop');
         });
 
-        // Add some sample products for demo
-        document.addEventListener('DOMContentLoaded', function() {
+        // ===== PRODUCT LOADING =====
+        function loadProducts() {
+            // Load admin products first, then default products
+            const adminProducts = JSON.parse(localStorage.getItem('zuvani-products') || '[]');
+            const allProducts = adminProducts.length > 0 ? adminProducts : products;
+            
+            // Featured products (home page)
+            const featuredProducts = allProducts.filter(product => product.featured);
             const featuredContainer = document.getElementById('featured-products');
+            featuredContainer.innerHTML = featuredProducts.map(product => createProductHTML(product)).join('');
+            
+            // All products (shop page)
             const allContainer = document.getElementById('all-products');
-            
-            const sampleProducts = [
-                {
-                    name: "Premium Cotton T-Shirt",
-                    price: 1499,
-                    image: "https://via.placeholder.com/300x400/333/ffffff?text=Premium+T-Shirt",
-                    description: "100% premium cotton, available in all sizes"
-                },
-                {
-                    name: "Designer Polo Shirt", 
-                    price: 2499,
-                    image: "https://via.placeholder.com/300x400/555/ffffff?text=Designer+Polo",
-                    description: "Classic polo shirt with modern fit"
-                },
-                {
-                    name: "Casual V-Neck Tee",
-                    price: 1299,
-                    image: "https://via.placeholder.com/300x400/777/ffffff?text=V-Neck+Tee", 
-                    description: "Comfortable v-neck for everyday wear"
-                }
-            ];
-            
-            const productHTML = sampleProducts.map(product => `
+            allContainer.innerHTML = allProducts.map(product => createProductHTML(product)).join('');
+        }
+
+        function createProductHTML(product) {
+            return `
                 <div class="product-card">
                     <div class="product-img">
-                        <img src="${product.image}" alt="${product.name}">
+                        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://via.placeholder.com/300x400/333/ffffff?text=Product+Image'">
                     </div>
                     <div class="product-info">
                         <h3>${product.name}</h3>
                         <p class="product-description">${product.description}</p>
                         <p class="product-price">KSh ${product.price.toLocaleString()}</p>
-                        <button class="add-to-cart" onclick="addToCartDemo('${product.name}', ${product.price})">
+                        <button class="add-to-cart" onclick="addToCart(${product.id})">
                             <i class="fas fa-shopping-bag"></i> Add to Cart
                         </button>
                     </div>
                 </div>
-            `).join('');
-            
-            featuredContainer.innerHTML = productHTML;
-            allContainer.innerHTML = productHTML + productHTML; // Double for demo
-        });
-
-        // Demo cart function
-        function addToCartDemo(name, price) {
-            const cartCount = document.getElementById('cart-count');
-            let count = parseInt(cartCount.textContent) || 0;
-            count++;
-            cartCount.textContent = count;
-            
-            alert(`✅ ${name} added to cart!`);
+            `;
         }
 
-        // Contact form
+        // ===== CART FUNCTIONALITY =====
+        function addToCart(productId) {
+            const product = products.find(p => p.id === productId) || 
+                           JSON.parse(localStorage.getItem('zuvani-products') || '[]').find(p => p.id === productId);
+            
+            if (!product) return;
+            
+            const existingItem = cart.find(item => item.id === productId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    id: product.id,
+                    name: product.name,
+                    price: product.price,
+                    quantity: 1,
+                    image: product.image
+                });
+            }
+            
+            updateCartDisplay();
+            showNotification(`✅ ${product.name} added to cart!`);
+        }
+
+        function updateCartDisplay() {
+            const cartCount = document.getElementById('cart-count');
+            const cartItems = document.getElementById('cart-items');
+            const emptyMessage = document.getElementById('empty-cart-message');
+            
+            // Update cart count
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+            
+            // Update cart items display
+            if (cart.length === 0) {
+                emptyMessage.style.display = 'block';
+                cartItems.innerHTML = '<p id="empty-cart-message">Your cart is empty</p>';
+            } else {
+                emptyMessage.style.display = 'none';
+                
+                let cartHTML = '';
+                let subtotal = 0;
+                
+                cart.forEach(item => {
+                    const itemTotal = item.price * item.quantity;
+                    subtotal += itemTotal;
+                    
+                    cartHTML += `
+                        <div class="cart-item">
+                            <div class="cart-item-img">
+                                <img src="${item.image}" alt="${item.name}" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px;" onerror="this.style.display='none'">
+                            </div>
+                            <div class="cart-item-details">
+                                <h3>${item.name}</h3>
+                                <p>Quantity: ${item.quantity}</p>
+                            </div>
+                            <div class="cart-item-price">KSh ${itemTotal.toLocaleString()}</div>
+                        </div>
+                    `;
+                });
+                
+                cartItems.innerHTML = cartHTML;
+                
+                // Update totals
+                const shipping = 200.00;
+                const total = subtotal + shipping;
+                
+                document.getElementById('cart-subtotal').textContent = `KSh ${subtotal.toLocaleString()}`;
+                document.getElementById('cart-total').textContent = `KSh ${total.toLocaleString()}`;
+                document.getElementById('stk-amount').textContent = `KSh ${total.toLocaleString()}`;
+            }
+        }
+
+        // ===== PAYMENT SYSTEM =====
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', function() {
+                document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+                this.classList.add('selected');
+                
+                const methodType = this.getAttribute('data-method');
+                const paymentDetails = document.getElementById('payment-details');
+                const mpesaSection = document.getElementById('mpesa-payment');
+                const stkPrompt = document.getElementById('stk-prompt');
+                
+                paymentDetails.style.display = 'block';
+                
+                if (methodType === 'mpesa') {
+                    mpesaSection.style.display = 'block';
+                    stkPrompt.style.display = 'none';
+                } else {
+                    mpesaSection.style.display = 'none';
+                    stkPrompt.style.display = 'none';
+                }
+            });
+        });
+
+        // M-Pesa payment request
+        document.getElementById('request-stk').addEventListener('click', function() {
+            const phoneNumber = document.getElementById('phone-number').value;
+            const totalAmount = document.getElementById('cart-total').textContent;
+            
+            if (!phoneNumber) {
+                showNotification('Please enter your phone number', 'error');
+                return;
+            }
+            
+            if (cart.length === 0) {
+                showNotification('Your cart is empty', 'error');
+                return;
+            }
+            
+            // Validate phone number (Kenyan format)
+            const phoneRegex = /^07[0-9]{8}$/;
+            if (!phoneRegex.test(phoneNumber)) {
+                showNotification('Please enter a valid Kenyan phone number (07XXXXXXXX)', 'error');
+                return;
+            }
+            
+            // Show STK prompt
+            document.getElementById('stk-amount').textContent = totalAmount;
+            document.getElementById('mpesa-payment').style.display = 'none';
+            document.getElementById('stk-prompt').style.display = 'block';
+            
+            showNotification(`M-Pesa payment request sent to ${phoneNumber}. Check your phone! 📱`);
+        });
+
+        // Confirm payment
+        document.getElementById('confirm-payment').addEventListener('click', function() {
+            showNotification('Processing payment...', 'info');
+            
+            // Simulate payment processing
+            setTimeout(() => {
+                showNotification('Payment successful! 🎉 Thank you for your order!');
+                
+                // Clear cart and reset
+                cart.length = 0;
+                updateCartDisplay();
+                document.getElementById('stk-prompt').style.display = 'none';
+                document.getElementById('payment-details').style.display = 'none';
+                document.querySelector('.payment-method.selected')?.classList.remove('selected');
+                document.getElementById('phone-number').value = '';
+                
+                // Return to home page
+                showPage('home');
+            }, 3000);
+        });
+
+        // Cancel payment
+        document.getElementById('cancel-payment').addEventListener('click', function() {
+            document.getElementById('stk-prompt').style.display = 'none';
+            document.getElementById('mpesa-payment').style.display = 'block';
+        });
+
+        // ===== CONTACT FORM =====
         document.getElementById('send-message').addEventListener('click', function() {
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
             const message = document.getElementById('message').value;
             
             if (name && email && message) {
-                alert('✅ Message sent! We\'ll get back to you soon.');
+                showNotification('Message sent! We\'ll get back to you soon 💫');
                 document.querySelector('.contact-form').reset();
             } else {
-                alert('❌ Please fill in all required fields.');
+                showNotification('Please fill in all required fields', 'error');
             }
+        });
+
+        // ===== NOTIFICATION SYSTEM =====
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: ${type === 'error' ? '#dc3545' : type === 'info' ? '#17a2b8' : '#28a745'};
+                color: white;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                z-index: 10000;
+                font-weight: 600;
+                max-width: 400px;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 4000);
+        }
+
+        // ===== INITIALIZE WEBSITE =====
+        document.addEventListener('DOMContentLoaded', function() {
+            loadProducts();
+            updateCartDisplay();
+            
+            // Load admin products if any
+            const adminProducts = JSON.parse(localStorage.getItem('zuvani-products') || '[]');
+            if (adminProducts.length > 0) {
+                console.log('Admin products loaded:', adminProducts.length);
+            }
+        });
+
+        // ===== CATEGORY NAVIGATION =====
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('click', function() {
+                showPage('shop');
+            });
         });
     </script>
 </body>
